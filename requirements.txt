@@ -1,6 +1,7 @@
 elevenlabs
 pyaudio
-openai
-dotenv
+google-generativeai
+python-dotenv
+langchain-community
+requests
 pillow
-langchain_community
