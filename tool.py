@@ -1,7 +1,7 @@
 import os
 from elevenlabs.conversational_ai.conversation import ClientTools
 from langchain_community.tools import DuckDuckGoSearchRun
-from openai import OpenAI
+import google.generativeai as genai
 import requests
 from io import BytesIO
 from PIL import Image
@@ -27,24 +27,22 @@ def generate_image(parameters):
     os.makedirs(dir_name, exist_ok=True)
     file_path = os.path.join(dir_name, f"{file_name}.png")
     
-    # Initialize OpenAI client
-    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    # Initialize Google Gemini API
+    genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
     
-    # Generate image using DALL-E 3
-    response = client.images.generate(
-        model="dall-e-3",
+    # Generate image using Google Imagen (or Gemini image generation model)
+    # Using Imagen 3 via google-generativeai SDK
+    image_model = genai.GenerativeModel("imagen-3.0-generate-002")
+    result = image_model.generate_images(
         prompt=prompt,
-        size="1024x1024",
-        quality="standard",
-        n=1,
+        number_of_images=1,
+        safety_filter_level="block_medium_and_above",
+        person_generation="allow_adult",
     )
     
-    image_url = response.data[0].url
-    
-    # Download and save the image locally
-    img_response = requests.get(image_url)
-    img = Image.open(BytesIO(img_response.content))
-    img.save(file_path)
+    for generated_image in result.generated_images:
+        image = Image.open(BytesIO(generated_image.image.image_bytes))
+        image.save(file_path)
     
     return f"Image successfully generated and saved as {file_path}."
 
