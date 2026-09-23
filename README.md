@@ -1,6 +1,6 @@
-# J.A.R.V.I.S. AI Voice Assistant (Python & ElevenLabs + Google Gemini)
+# F.R.I.D.A.Y AI Voice Assistant (Python & ElevenLabs + Google Gemini)
 
-This project allows you to create your own personal J.A.R.V.I.S. AI voice assistant using Python, ElevenLabs for real-time conversational voice handling, and Google Gemini / Imagen for backend logic and image generation.
+This project allows you to create your own personal F.R.I.D.A.Y. AI voice assistant using Python, ElevenLabs for real-time conversational voice handling, and Google Gemini / Imagen for backend logic and image generation.
 
 ---
 
