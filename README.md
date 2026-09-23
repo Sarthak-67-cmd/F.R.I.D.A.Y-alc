@@ -8,7 +8,6 @@ This project allows you to create your own personal F.R.I.D.A.Y. AI voice assist
 
 * **Python 3.14+** installed on your system.
 * **Visual Studio Code** (or any preferred Python IDE).
-* An **ElevenLabs** account[cite: 1] with conversational AI configured.
 * A **Google AI Studio** API key for Gemini and Imagen.
 
 ---
