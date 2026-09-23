@@ -6,7 +6,7 @@ This project allows you to create your own personal J.A.R.V.I.S. AI voice assist
 
 ## Prerequisites
 
-* **Python 3.10+** installed on your system.
+* **Python 3.14+** installed on your system.
 * **Visual Studio Code** (or any preferred Python IDE).
 * An **ElevenLabs** account[cite: 1] with conversational AI configured.
 * A **Google AI Studio** API key for Gemini and Imagen.
